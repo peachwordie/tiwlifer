@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>tiwlifers 💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <img src="flower.jpg" alt="ดอกไม้" class="photo">
+
+        <h2>
+        <center>
+            รู้ว่าทำตัวไม่น่ารัก <br>
+            เอาดอกไม้มาฝาก 💐<br>
+            สุดหล่อจะรับมั้ย
+        </center>
+
+        </h2>
+
+        <div class="buttons">
+            <button class="accept" onclick="acceptLove()">รับ</button>
+            <button class="decline" onclick="declineLove()">ไม่รับ</button>
+        </div>
+
+        <p id="result"></p>
+    </div>
+
+<script>
+let scaleAccept = 1;
+let scaleDecline = 1;
+
+function acceptLove() {
+    document.getElementById("result").innerText = "เย้!";
+}
+
+function declineLove() {
+    const acceptBtn = document.querySelector(".accept");
+    const declineBtn = document.querySelector(".decline");
+
+    // เพิ่มขนาดปุ่มรับ
+    scaleAccept += 0.2;
+    acceptBtn.style.transform = "scale(" + scaleAccept + ")";
+
+    // ลดขนาดปุ่มไม่รับ
+    scaleDecline -= 0.2;
+    declineBtn.style.transform = "scale(" + scaleDecline + ")";
+
+    // ถ้าเล็กมากจนแทบมองไม่เห็น ให้ซ่อนเลย
+    if (scaleDecline <= 0.2) {
+        declineBtn.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
